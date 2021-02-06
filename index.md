@@ -1,37 +1,34 @@
-## Welcome to GitHub Pages
+import os
 
-You can use the [editor on GitHub](https://github.com/Digitwidgit/Code-Snippets-for-Socket-Programming/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+#get the current working directory.
+my_directory = os.getcwd()
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+#Find the drive leter (c:, d:, e:..) by slicing the string.
+#There are 3 positions. Start:Stop:Step. First number tells starting position -
+#So the 0 would start with the first character. The second number tells it where -
+#to stop. So here it is stopping on the 2. Remember, it always starts with 0, no 1.
+#Last is telling it how many to step. We stated 1, so it will could over only by ones.
+#So looking at the string -> c:\myfolder\mynextfolder... We can determine that -
+#0 position is starting with the first character which is 'c'. The 2 would be counting-
+#until "\". However, it will always subtract left one character. So instead of printing-
+#c:\, it will step back one and only print c:.
+find_drive_letter = my_directory[0:2:1]
 
-### Markdown
+#This tellis it to start on character 2, which would be the "\" from c:\. and because-
+#we put ":", that tells it to count all the way to the end of the string. Hence, we get-
+#everything to the right of c:. --> \directroy\nextdirectroy\...
+my_path = my_directory[2:]
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
 
-```markdown
-Syntax highlighted code block
 
-# Header 1
-## Header 2
-### Header 3
+#Printing the results of the drive letter.
+print("This is my drive letter: " + "[" + find_drive_letter + "]")
 
-- Bulleted
-- List
+#Printing the results of the path.
+print("This is the path after the drive letter: " + '"' + my_path + '"')
 
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Digitwidgit/Code-Snippets-for-Socket-Programming/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+#Combining both the drive letter and the path. The "|" character allows it too all be on-
+#the same line.
+print("Combining both the drive letter and the path --> " + find_drive_letter + my_path, end="|")
+print("All on the same line", end="|")
+print("Even thought its on a new line within the code")
