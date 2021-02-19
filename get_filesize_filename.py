@@ -1,6 +1,6 @@
 import os
 
-file_path = "c://users//nater//documents//6.zip"
+file_path = "c://users//someusername//documents//somefilename.txt"
 file_size = os.path.getsize(file_path)
 print(file_size)
 
